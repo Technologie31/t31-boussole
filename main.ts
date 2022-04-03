@@ -2,15 +2,13 @@ let direction = 0
 input.calibrateCompass()
 basic.forever(function () {
     direction = input.compassHeading()
-    if (direction < 45) {
-        basic.showArrow(ArrowNames.North)
+    if (direction < 45 || direction > 315) {
+        basic.showString("N")
     } else if (direction < 135) {
-        basic.showArrow(ArrowNames.East)
+        basic.showString("E")
     } else if (direction < 225) {
-        basic.showArrow(ArrowNames.South)
-    } else if (direction < 315) {
-        basic.showArrow(ArrowNames.West)
+        basic.showString("S")
     } else {
-        basic.showArrow(ArrowNames.North)
+        basic.showString("O")
     }
 })
